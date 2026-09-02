@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="de-AT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07080C">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="WortWerkstatt">
+  <title>WortWerkstatt</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <p class="brand">WORTWERKSTATT</p>
+        <h1 class="screen-title" id="screenTitle">Training</h1>
+      </div>
+      <div class="pills">
+        <span id="gradeTag">5. Klasse</span>
+        <span id="starTag" class="xp">0 XP</span>
+      </div>
+    </header>
+    <main>
+      <section id="home" class="view active">
+        <div class="hero-card">
+          <p class="kicker">Mission</p>
+          <h2>Heute Wörter knacken.</h2>
+          <p>Kurze Einheiten. Klare Regeln. Hören, lesen, entscheiden. Kein Zeitdruck.</p>
+          <button class="btn-primary" onclick="startAdaptive()">5 Aufgaben starten</button>
+        </div>
+        <p class="section-label">Stufe</p>
+        <div id="grades" class="seg"></div>
+        <p class="section-label">Module</p>
+        <div id="modules" class="list"></div>
+      </section>
+      <section id="quiz" class="view">
+        <button class="text-btn" onclick="go('home')">Zurück</button>
+        <p id="qTopic" class="kicker"></p>
+        <div id="strategyBadge" class="chip"></div>
+        <h2 id="qText"></h2>
+        <div id="syllableHint" class="syllables"></div>
+        <button class="btn-ghost" onclick="speak()">Hören</button>
+        <div id="choices" class="choices"></div>
+        <div id="result" class="result hide"></div>
+        <aside class="hint"><b>Tipp</b><p id="help">Erst selbst versuchen.</p></aside>
+      </section>
+      <section id="learn" class="view">
+        <p class="section-label">Regeln kurz</p>
+        <div id="learnGrid" class="list"></div>
+      </section>
+      <section id="write" class="view">
+        <p class="kicker">Schreibschrift</p>
+        <h2>Spur halten</h2>
+        <p class="muted">Prima-Cursive. Langsam ist besser als schnell.</p>
+        <div id="fontStatus" class="note">Schrift geladen.</div>
+        <div class="primaSample">Aa Mm Schule</div>
+        <div class="writelevels">
+          <button onclick="setWriteLevel('letters')">Buchstaben</button>
+          <button onclick="setWriteLevel('joins')">Verbindungen</button>
+          <button onclick="setWriteLevel('syllables')">Silben</button>
+          <button onclick="setWriteLevel('words')">Wörter</button>
+          <button onclick="setWriteLevel('sentences')">Sätze</button>
+        </div>
+        <div id="writeBtns"></div>
+        <div class="paper"><div id="ghost">m</div><canvas id="canvas" width="1200" height="360"></canvas></div>
+        <div class="row">
+          <button class="btn-ghost" onclick="clearCanvas()">Neu</button>
+          <button class="btn-ghost" onclick="sayTrace()">Hören</button>
+          <button class="btn-ghost" onclick="toggleGhost()">Vorlage</button>
+          <button class="btn-primary" onclick="finishWriting()">Fertig</button>
+        </div>
+        <p id="writeHint" class="muted">Achte auf Startpunkt und Richtung.</p>
+      </section>
+      <section id="curriculum" class="view">
+        <p class="section-label">Lehrplan-Fokus</p>
+        <div id="currGrid" class="list"></div>
+      </section>
+      <section id="adult" class="view">
+        <p class="kicker">Eltern</p>
+        <h2>Übersicht</h2>
+        <div id="adultStats" class="stats"></div>
+        <p class="section-label">Schwerpunkte</p>
+        <div id="weak"></div>
+        <p class="muted">Schulstufe bestimmt den Stoff. Förderung bestimmt die Schritte.</p>
+        <button class="btn-ghost" onclick="resetAll()">Daten löschen</button>
+      </section>
+    </main>
+    <nav class="tabbar">
+      <button onclick="go('home')"><i>○</i><span>Start</span></button>
+      <button onclick="go('learn')"><i>■</i><span>Regeln</span></button>
+      <button onclick="go('write')"><i>✎</i><span>Schreiben</span></button>
+      <button onclick="go('curriculum')"><i>≡</i><span>Plan</span></button>
+      <button onclick="go('adult')"><i>●</i><span>Eltern</span></button>
+    </nav>
+  </div>
+  <script src="exercises.js?v=7.0"></script>
+  <script src="app.js?v=7.0"></script>
+</body>
+</html>
