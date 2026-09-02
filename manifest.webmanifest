@@ -1,0 +1,19 @@
+{
+  "name": "WortWerkstatt Spielwelt",
+  "short_name": "WortWerkstatt",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF6E8",
+  "theme_color": "#3B7FBF",
+  "lang": "de-AT",
+  "description": "Spielerische Lese- und Rechtschreibförderung für die Volksschule. Mit Wortsprung-Spiel.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
